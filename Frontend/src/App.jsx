@@ -15,7 +15,9 @@ function App() {
   return (
     <div className="min-h-screen p-6">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-xl font-semibold">{role.toUpperCase()} Dashboard</h2>
+        <h2 className="text-xl font-semibold">
+          {role.toUpperCase()} Dashboard
+        </h2>
         <button
           className="px-3 py-1 bg-indigo-600 text-white rounded"
           onClick={() => setRole("")}
