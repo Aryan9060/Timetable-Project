@@ -1,9 +1,9 @@
 import { useState } from "react";
-import "./App.css";
+// import "./App.css";
 import Login from "./pages/login";
-import Student from "./deshboard/Student";
-import Faculty from "./deshboard/Faculty";
-import Admin from "./deshboard/Admin";
+import Student from "./dashboard/Student";
+import Faculty from "./dashboard/Faculty";
+import Admin from "./dashboard/Admin";
 
 function App() {
   const [role, setRole] = useState("");

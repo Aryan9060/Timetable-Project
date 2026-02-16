@@ -5,41 +5,88 @@ const ENTITY_CONFIG = {
   program: {
     label: "Program",
     pluralLabel: "Programs",
-    description: "Define academic programs like B.Tech CSE, BBA, etc.",
+    // description: "Define academic programs like B.Tech CSE, BBA, etc.",
     fields: [
-      { name: "code", label: "Program Code", placeholder: "e.g. BTECH-CSE", required: true },
-      { name: "name", label: "Program Name", placeholder: "e.g. B.Tech Computer Science", required: true },
+      {
+        name: "code",
+        label: "Program Code",
+        placeholder: "e.g. BTECH-CSE",
+        required: true,
+      },
+      {
+        name: "name",
+        label: "Program Name",
+        placeholder: "e.g. B.Tech Computer Science",
+        required: true,
+      },
     ],
     csvExampleHeader: "code,name",
   },
+
   batch: {
     label: "Batch",
     pluralLabel: "Batches",
-    description: "Create batches / academic years for programs.",
+    // description: "Create batches / academic years for programs.",
     fields: [
-      { name: "name", label: "Batch Name", placeholder: "e.g. 2024-2028", required: true },
-      { name: "programCode", label: "Program Code", placeholder: "e.g. BTECH-CSE", required: true },
+      {
+        name: "name",
+        label: "Batch Name",
+        placeholder: "e.g. 2024-2028",
+        required: true,
+      },
+      {
+        name: "programCode",
+        label: "Program Code",
+        placeholder: "e.g. BTECH-CSE",
+        required: true,
+      },
     ],
     csvExampleHeader: "name,programCode",
   },
+
   class: {
     label: "Class",
     pluralLabel: "Classes",
-    description: "Create classes/sections which will get timetables.",
+    // description: "Create classes/sections which will get timetables.",
     fields: [
-      { name: "code", label: "Class Code", placeholder: "e.g. CSE-3A", required: true },
-      { name: "batchName", label: "Batch Name", placeholder: "e.g. 2024-2028", required: true },
-      { name: "programCode", label: "Program Code", placeholder: "e.g. BTECH-CSE", required: true },
+      {
+        name: "code",
+        label: "Class Code",
+        placeholder: "e.g. CSE-3A",
+        required: true,
+      },
+      {
+        name: "batchName",
+        label: "Batch Name",
+        placeholder: "e.g. 2024-2028",
+        required: true,
+      },
+      {
+        name: "programCode",
+        label: "Program Code",
+        placeholder: "e.g. BTECH-CSE",
+        required: true,
+      },
     ],
     csvExampleHeader: "code,batchName,programCode",
   },
   section: {
     label: "Section",
     pluralLabel: "Sections",
-    description: "Optional sections inside a class.",
+    // description: "Optional sections inside a class.",
     fields: [
-      { name: "name", label: "Section Name", placeholder: "e.g. A", required: true },
-      { name: "classCode", label: "Class Code", placeholder: "e.g. CSE-3A", required: true },
+      {
+        name: "name",
+        label: "Section Name",
+        placeholder: "e.g. A",
+        required: true,
+      },
+      {
+        name: "classCode",
+        label: "Class Code",
+        placeholder: "e.g. CSE-3A",
+        required: true,
+      },
     ],
     csvExampleHeader: "name,classCode",
   },
@@ -48,9 +95,24 @@ const ENTITY_CONFIG = {
     pluralLabel: "Subjects",
     description: "Maintain subject master list for timetables.",
     fields: [
-      { name: "code", label: "Subject Code", placeholder: "e.g. CS301", required: true },
-      { name: "name", label: "Subject Name", placeholder: "e.g. Data Structures", required: true },
-      { name: "programCode", label: "Program Code", placeholder: "e.g. BTECH-CSE", required: false },
+      {
+        name: "code",
+        label: "Subject Code",
+        placeholder: "e.g. CS301",
+        required: true,
+      },
+      {
+        name: "name",
+        label: "Subject Name",
+        placeholder: "e.g. Data Structures",
+        required: true,
+      },
+      {
+        name: "programCode",
+        label: "Program Code",
+        placeholder: "e.g. BTECH-CSE",
+        required: false,
+      },
     ],
     csvExampleHeader: "code,name,programCode",
   },
@@ -59,9 +121,24 @@ const ENTITY_CONFIG = {
     pluralLabel: "Faculty",
     description: "Add faculty details to map classes and subjects.",
     fields: [
-      { name: "employeeId", label: "Employee ID", placeholder: "e.g. F001", required: true },
-      { name: "name", label: "Name", placeholder: "e.g. Dr. Sunil Kumar", required: true },
-      { name: "email", label: "Email", placeholder: "e.g. sunil@college.edu", required: false },
+      {
+        name: "employeeId",
+        label: "Employee ID",
+        placeholder: "e.g. F001",
+        required: true,
+      },
+      {
+        name: "name",
+        label: "Name",
+        placeholder: "e.g. Dr. Sunil Kumar",
+        required: true,
+      },
+      {
+        name: "email",
+        label: "Email",
+        placeholder: "e.g. sunil@college.edu",
+        required: false,
+      },
     ],
     csvExampleHeader: "employeeId,name,email",
   },
@@ -70,10 +147,30 @@ const ENTITY_CONFIG = {
     pluralLabel: "Students",
     description: "Maintain list of students for each class/section.",
     fields: [
-      { name: "rollNo", label: "Roll No", placeholder: "e.g. 24CS001", required: true },
-      { name: "name", label: "Name", placeholder: "e.g. Aryan Kumar", required: true },
-      { name: "classCode", label: "Class Code", placeholder: "e.g. CSE-3A", required: true },
-      { name: "sectionName", label: "Section (optional)", placeholder: "e.g. A", required: false },
+      {
+        name: "rollNo",
+        label: "Roll No",
+        placeholder: "e.g. 24CS001",
+        required: true,
+      },
+      {
+        name: "name",
+        label: "Name",
+        placeholder: "e.g. Aryan Kumar",
+        required: true,
+      },
+      {
+        name: "classCode",
+        label: "Class Code",
+        placeholder: "e.g. CSE-3A",
+        required: true,
+      },
+      {
+        name: "sectionName",
+        label: "Section (optional)",
+        placeholder: "e.g. A",
+        required: false,
+      },
     ],
     csvExampleHeader: "rollNo,name,classCode,sectionName",
   },
@@ -135,7 +232,9 @@ export default function Admin() {
     } catch {
       return {};
     }
-  }); // key: classCode, value: { classCode, grid }
+  });
+
+  // key: classCode, value: { classCode, grid }
   const [selectedClassForTT, setSelectedClassForTT] = useState("");
   const [ttGrid, setTtGrid] = useState(createEmptyGrid());
 
@@ -160,10 +259,9 @@ export default function Admin() {
   // Seed dummy MCA data and timetable when everything is empty (first run)
   useEffect(() => {
     const isMasterEmpty = MASTER_ENTITY_KEYS.every(
-      (key) => !masterData[key] || masterData[key].length === 0
+      (key) => !masterData[key] || masterData[key].length === 0,
     );
-    const hasNoTimetables =
-      !timetables || Object.keys(timetables).length === 0;
+    const hasNoTimetables = !timetables || Object.keys(timetables).length === 0;
 
     if (!isMasterEmpty || !hasNoTimetables) {
       return;
@@ -202,11 +300,36 @@ export default function Admin() {
       ],
       section: [],
       subject: [
-        { id: generateId(), code: "MCA101", name: "Data Structures", programCode: "MCA" },
-        { id: generateId(), code: "MCA102", name: "Database Management Systems", programCode: "MCA" },
-        { id: generateId(), code: "MCA103", name: "Operating Systems", programCode: "MCA" },
-        { id: generateId(), code: "MCA104", name: "Computer Networks", programCode: "MCA" },
-        { id: generateId(), code: "MCA105", name: "Discrete Mathematics", programCode: "MCA" },
+        {
+          id: generateId(),
+          code: "MCA101",
+          name: "Data Structures",
+          programCode: "MCA",
+        },
+        {
+          id: generateId(),
+          code: "MCA102",
+          name: "Database Management Systems",
+          programCode: "MCA",
+        },
+        {
+          id: generateId(),
+          code: "MCA103",
+          name: "Operating Systems",
+          programCode: "MCA",
+        },
+        {
+          id: generateId(),
+          code: "MCA104",
+          name: "Computer Networks",
+          programCode: "MCA",
+        },
+        {
+          id: generateId(),
+          code: "MCA105",
+          name: "Discrete Mathematics",
+          programCode: "MCA",
+        },
       ],
       faculty: [
         {
@@ -344,7 +467,7 @@ export default function Admin() {
         return {
           ...prev,
           [activeEntity]: list.map((item) =>
-            item.id === editingEntityId ? withId : item
+            item.id === editingEntityId ? withId : item,
           ),
         };
       }
@@ -370,7 +493,9 @@ export default function Admin() {
     if (!window.confirm("Delete this record?")) return;
     setMasterData((prev) => ({
       ...prev,
-      [activeEntity]: (prev[activeEntity] || []).filter((item) => item.id !== id),
+      [activeEntity]: (prev[activeEntity] || []).filter(
+        (item) => item.id !== id,
+      ),
     }));
     if (editingEntityId === id) {
       resetEntityForm();
@@ -424,7 +549,9 @@ export default function Admin() {
           [activeEntity]: [...(prev[activeEntity] || []), ...imported],
         }));
         event.target.value = "";
-        alert(`Imported ${imported.length} ${currentEntityConfig.pluralLabel}.`);
+        alert(
+          `Imported ${imported.length} ${currentEntityConfig.pluralLabel}.`,
+        );
       } catch (err) {
         console.error(err);
         alert("Failed to parse CSV. Please check the format.");
@@ -487,9 +614,9 @@ export default function Admin() {
           <h1 className="text-2xl font-semibold text-gray-900">
             Admin Dashboard
           </h1>
-          <p className="text-sm text-gray-500">
+          {/* <p className="text-sm text-gray-500">
             Manage master data and generate class timetables.
-          </p>
+          </p> */}
         </div>
         <div className="flex gap-2">
           <button
@@ -516,6 +643,9 @@ export default function Admin() {
           </button>
         </div>
       </div>
+
+      {/* ----------------------------------------------Header end---------------------------------------------- */}
+      {/* ----------------------------------------------Master Data---------------------------------------------- */}
 
       {activeTab === "master" && (
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
@@ -549,6 +679,8 @@ export default function Admin() {
               })}
             </div>
           </div>
+
+          {/* -------------------------------------------------Right side: form + list + csv---------------------------------------------- */}
 
           {/* Right: form + list + csv */}
           <div className="lg:col-span-3 space-y-4">
@@ -705,6 +837,9 @@ export default function Admin() {
           </div>
         </div>
       )}
+      {/* -------------------------------------------------Right side: form + list + csv---------------------------------------------- */}
+
+      {/* -------------------------------------------------TimeTable---------------------------------------------- */}
 
       {activeTab === "timetable" && (
         <div className="space-y-4">
@@ -713,10 +848,10 @@ export default function Admin() {
               <h2 className="text-lg font-semibold text-gray-800">
                 Class Timetables
               </h2>
-              <p className="text-xs text-gray-500">
+              {/* <p className="text-xs text-gray-500">
                 Select a class and design its timetable. Data is stored only in
                 browser memory for now.
-              </p>
+              </p> */}
             </div>
             <div className="flex items-center gap-2">
               <label className="text-xs font-medium text-gray-700">
@@ -752,6 +887,8 @@ export default function Admin() {
             </div>
           )}
 
+          {/* --------------------------------------------------Save TimeTable Button--------------------------------------------------- */}
+
           {classList.length > 0 && selectedClassForTT && (
             <div className="space-y-4">
               <div className="flex items-center justify-between">
@@ -767,6 +904,8 @@ export default function Admin() {
                   Save Timetable
                 </button>
               </div>
+
+              {/* ----------------------------------------------------Table Grid------------------------------------------------------ */}
 
               <div className="overflow-x-auto rounded-lg border border-gray-200 bg-white max-h-[520px]">
                 <table className="min-w-full text-xs">
@@ -810,7 +949,7 @@ export default function Admin() {
                                         day,
                                         p,
                                         "subjectCode",
-                                        e.target.value
+                                        e.target.value,
                                       )
                                     }
                                     placeholder="Subject code/name"
@@ -818,10 +957,7 @@ export default function Admin() {
                                   />
                                   <datalist id={`subject-list-${day}-${p}`}>
                                     {subjectList.map((sub) => (
-                                      <option
-                                        key={sub.id}
-                                        value={sub.code}
-                                      >
+                                      <option key={sub.id} value={sub.code}>
                                         {sub.name}
                                       </option>
                                     ))}
@@ -836,7 +972,7 @@ export default function Admin() {
                                       day,
                                       p,
                                       "facultyId",
-                                      e.target.value
+                                      e.target.value,
                                     )
                                   }
                                   className="w-full px-2 py-1 border border-gray-200 rounded text-[11px] bg-white focus:ring-1 focus:ring-indigo-500 outline-none"
@@ -858,7 +994,7 @@ export default function Admin() {
                                       day,
                                       p,
                                       "room",
-                                      e.target.value
+                                      e.target.value,
                                     )
                                   }
                                   placeholder="Room"
