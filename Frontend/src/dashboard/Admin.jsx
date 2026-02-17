@@ -10,44 +10,74 @@ const ENTITY_CONFIG = {
       {
         name: "code",
         label: "Program Code",
-        placeholder: "e.g. BTECH-CSE",
+        placeholder: "e.g. UG-CSE",
         required: true,
       },
       {
         name: "name",
         label: "Program Name",
-        placeholder: "e.g. B.Tech Computer Science",
+        placeholder: "e.g. Undergraduate Computer Science",
         required: true,
       },
     ],
     csvExampleHeader: "code,name",
   },
 
-  batch: {
-    label: "Batch",
-    pluralLabel: "Batches",
-    // description: "Create batches / academic years for programs.",
+  course: {
+    label: "Course",
+    pluralLabel: "Courses",
+    // description: "Define courses like B.Tech, M.Tech, etc.",
     fields: [
       {
-        name: "name",
-        label: "Batch Name",
-        placeholder: "e.g. 2024-2028",
+        name: "code",
+        label: "Course Code",
+        placeholder: "e.g. UG-CSE-101",
         required: true,
       },
       {
-        name: "programCode",
-        label: "Program Code",
-        placeholder: "e.g. BTECH-CSE",
+        name: "name",
+        label: "Course Name",
+        placeholder: "e.g. Introduction to Programming",
+        required: true,
+      },
+      {
+        name: "duration",
+        label: "Duration (years)",
+        placeholder: "e.g. 3",
         required: true,
       },
     ],
-    csvExampleHeader: "name,programCode",
+    csvExampleHeader: "code,name,duration",
   },
 
-  class: {
+  room: {
+    label: "Room",
+    pluralLabel: "Rooms",
+    // description: "Maintain list of rooms for scheduling classes.",
+    fields: [
+      {
+        name: "code",
+        label: "Room Code",
+        placeholder: "e.g. R101",
+        required: true,
+      },
+      {
+        name: "floor_no",
+        label: "Floor no",
+        placeholder: "e.g. Ground Floor",
+        required: true,
+      },
+      {
+        name: "Wing",
+        label: "Wing",
+        placeholder: "e.g. A Wing",
+        required: true,
+      },
+    ],
+  },
+  classes: {
     label: "Class",
     pluralLabel: "Classes",
-    // description: "Create classes/sections which will get timetables.",
     fields: [
       {
         name: "code",
@@ -56,28 +86,32 @@ const ENTITY_CONFIG = {
         required: true,
       },
       {
-        name: "batchName",
-        label: "Batch Name",
-        placeholder: "e.g. 2024-2028",
+        name: "courseCode",
+        label: "Course Code",
+        placeholder: "e.g. UG-CSE-101",
         required: true,
       },
       {
         name: "programCode",
         label: "Program Code",
-        placeholder: "e.g. BTECH-CSE",
+        placeholder: "e.g. UG-CSE",
+        required: true,
+      },
+      {
+        name: "year",
+        label: "Year",
+        placeholder: "e.g. 2024",
         required: true,
       },
     ],
-    csvExampleHeader: "code,batchName,programCode",
   },
   section: {
     label: "Section",
     pluralLabel: "Sections",
-    // description: "Optional sections inside a class.",
     fields: [
       {
-        name: "name",
-        label: "Section Name",
+        name: "sectionCode",
+        label: "Section Code",
         placeholder: "e.g. A",
         required: true,
       },
@@ -87,9 +121,15 @@ const ENTITY_CONFIG = {
         placeholder: "e.g. CSE-3A",
         required: true,
       },
+      {
+        name: "division",
+        label: "Division",
+        placeholder: "e.g. 1",
+        required: true,
+      },
     ],
-    csvExampleHeader: "name,classCode",
   },
+
   subject: {
     label: "Subject",
     pluralLabel: "Subjects",
@@ -108,22 +148,68 @@ const ENTITY_CONFIG = {
         required: true,
       },
       {
-        name: "programCode",
-        label: "Program Code",
-        placeholder: "e.g. BTECH-CSE",
+        name: "credits",
+        label: "Credits",
+        placeholder: "e.g. 3",
+        required: false,
+      },
+      {
+        name: "isActive",
+        label: "Active",
+        type: "boolean",
         required: false,
       },
     ],
-    csvExampleHeader: "code,name,programCode",
+    csvExampleHeader: "code,name,credits,isActive",
   },
+
+  specilization: {
+    label: "Specialization",
+    pluralLabel: "Specializations",
+    description: "Define specializations for programs (e.g. AI, DS).",
+    fields: [
+      {
+        name: "code",
+        label: "Specialization Code",
+        placeholder: "e.g. CSE-AI",
+        required: true,
+      },
+      {
+        name: "name",
+        label: "Specialization Name",
+        placeholder: "e.g. Computer Science - Artificial Intelligence",
+        required: true,
+      },
+      {
+        name: "programCode",
+        label: "Program Code",
+        placeholder: "e.g. UG-CSE",
+        required: true,
+      },
+      {
+        name: "courseCodes",
+        label: "Related Course Codes (comma-separated)",
+        placeholder: "e.g. UG-CSE-201,UG-CSE-202",
+        required: false,
+      },
+      {
+        name: "duration",
+        label: "Duration (semesters)",
+        placeholder: "e.g. 4",
+        required: false,
+      },
+    ],
+    csvExampleHeader: "code,name,programCode,courseCodes,duration",
+  },
+
   faculty: {
     label: "Faculty",
     pluralLabel: "Faculty",
     description: "Add faculty details to map classes and subjects.",
     fields: [
       {
-        name: "employeeId",
-        label: "Employee ID",
+        name: "facultyId",
+        label: "Faculty ID",
         placeholder: "e.g. F001",
         required: true,
       },
@@ -139,17 +225,73 @@ const ENTITY_CONFIG = {
         placeholder: "e.g. sunil@college.edu",
         required: false,
       },
+      {
+        name: "phone",
+        label: "Phone",
+        placeholder: "e.g. +1234567890",
+        required: false,
+      },
+      {
+        name: "specialization",
+        label: "Specialization",
+        placeholder: "e.g. Computer Science",
+        required: false,
+      },
+      {
+        name: "higherQualification",
+        label: "Higher Qualification",
+        placeholder: "e.g. PhD in Computer Science",
+        required: false,
+      },
+      {
+        name: "experienceYears",
+        label: "Years of Experience",
+        placeholder: "e.g. 10",
+        required: false,
+      },
+      {
+        name: "joiningDate",
+        label: "Joining Date",
+        placeholder: "e.g. 2020-08-15",
+        required: false,
+      },
+      {
+        name: "isActive",
+        label: "Active",
+        type: "boolean",
+        required: false,
+      },
+      {
+        name: "gender",
+        label: "Gender",
+        placeholder: "e.g. Male",
+        required: false,
+      },
+      {
+        name: "dateOfBirth",
+        label: "Date of Birth",
+        placeholder: "e.g. 1980-05-20",
+        required: false,
+      },
+      {
+        name: "address",
+        label: "Address",
+        placeholder: "e.g. 123 Main St, City",
+        required: false,
+      },
     ],
-    csvExampleHeader: "employeeId,name,email",
+    csvExampleHeader:
+      " employeeId,name,email,phone,specialization,higherQualification,experienceYears,joiningDate,isActive,gender,dateOfBirth,address",
   },
+
   student: {
     label: "Student",
     pluralLabel: "Students",
     description: "Maintain list of students for each class/section.",
     fields: [
       {
-        name: "rollNo",
-        label: "Roll No",
+        name: "enrollmentNo",
+        label: "Enrollment No",
         placeholder: "e.g. 24CS001",
         required: true,
       },
@@ -160,10 +302,34 @@ const ENTITY_CONFIG = {
         required: true,
       },
       {
+        name: "fatherName",
+        label: "Father's Name",
+        placeholder: "e.g. Ramesh Kumar",
+        required: false,
+      },
+      {
         name: "classCode",
         label: "Class Code",
         placeholder: "e.g. CSE-3A",
         required: true,
+      },
+      {
+        name: "batch",
+        label: "Batch",
+        placeholder: "e.g. 2024",
+        required: false,
+      },
+      {
+        name: "specialization",
+        label: "Specialization",
+        placeholder: "e.g. AI",
+        required: false,
+      },
+      {
+        name: "email",
+        label: "Email",
+        placeholder: "e.g. aryan@college.edu",
+        required: false,
       },
       {
         name: "sectionName",
@@ -640,6 +806,83 @@ export default function Admin() {
             }`}
           >
             Timetables
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              // seed demo data into localStorage and state
+              try {
+                const seededMaster = {
+                  ...createEmptyMasterData(),
+                  program: [
+                    { id: generateId(), code: "UG-CSE", name: "B.Tech Computer Science" },
+                    { id: generateId(), code: "PG-MCA", name: "MCA" },
+                  ],
+                  course: [
+                    { id: generateId(), code: "UG-CSE-101", name: "Intro to Programming", duration: "3" },
+                    { id: generateId(), code: "UG-CSE-102", name: "Data Structures", duration: "3" },
+                  ],
+                  room: [
+                    { id: generateId(), code: "R101", floor_no: "1", Wing: "A" },
+                    { id: generateId(), code: "Lab-1", floor_no: "G", Wing: "B" },
+                  ],
+                  classes: [
+                    { id: generateId(), code: "CSE-3A", courseCode: "UG-CSE-101", programCode: "UG-CSE", year: "3" },
+                    { id: generateId(), code: "CSE-3B", courseCode: "UG-CSE-101", programCode: "UG-CSE", year: "3" },
+                  ],
+                  // keep legacy key used elsewhere
+                  class: [
+                    { id: generateId(), code: "MCA-1", batchName: "2024-2026", programCode: "PG-MCA" },
+                    { id: generateId(), code: "MCA-2", batchName: "2024-2026", programCode: "PG-MCA" },
+                  ],
+                  section: [
+                    { id: generateId(), sectionCode: "A", classCode: "CSE-3A", division: "1" },
+                    { id: generateId(), sectionCode: "B", classCode: "CSE-3B", division: "1" },
+                  ],
+                  subject: [
+                    { id: generateId(), code: "CS301", name: "Data Structures", credits: "3", isActive: true },
+                    { id: generateId(), code: "CS302", name: "Database Systems", credits: "3", isActive: true },
+                  ],
+                  specilization: [
+                    { id: generateId(), code: "CSE-AI", name: "AI", programCode: "UG-CSE", courseCodes: "UG-CSE-101", duration: "4" },
+                    { id: generateId(), code: "CSE-DS", name: "Data Science", programCode: "UG-CSE", courseCodes: "UG-CSE-101", duration: "4" },
+                  ],
+                  faculty: [
+                    { id: generateId(), employeeId: "F001", facultyId: "F001", name: "Dr. Rohan Singh", email: "rohan@college.edu", phone: "+911234567890" },
+                    { id: generateId(), employeeId: "F002", facultyId: "F002", name: "Prof. Meera Sharma", email: "meera@college.edu", phone: "+911234567891" },
+                  ],
+                  student: [
+                    { id: generateId(), enrollmentNo: "24CS001", name: "Aryan Kumar", fatherName: "Ramesh Kumar", classCode: "CSE-3A", batch: "2024", specialization: "AI", email: "aryan@college.edu", sectionName: "A" },
+                    { id: generateId(), enrollmentNo: "24CS002", name: "Priya Singh", fatherName: "Suresh Singh", classCode: "CSE-3B", batch: "2024", specialization: "DS", email: "priya@college.edu", sectionName: "B" },
+                  ],
+                };
+
+                const grid = createEmptyGrid();
+                grid.Monday["1"] = { subjectCode: "CS301", facultyId: "F001", room: "R101" };
+                grid.Monday["2"] = { subjectCode: "CS301", facultyId: "F001", room: "R101" };
+                grid.Tuesday["1"] = { subjectCode: "CS302", facultyId: "F002", room: "Lab-1" };
+                grid.Tuesday["2"] = { subjectCode: "CS302", facultyId: "F002", room: "Lab-1" };
+
+                const seededTimetables = { "MCA-1": { classCode: "MCA-1", grid } };
+
+                try {
+                  window.localStorage.setItem("tt_masterData", JSON.stringify(seededMaster));
+                  window.localStorage.setItem("tt_timetables", JSON.stringify(seededTimetables));
+                } catch (err) {
+                  // ignore storage errors
+                }
+
+                setMasterData(seededMaster);
+                setTimetables(seededTimetables);
+                alert("Demo data seeded into localStorage and state.");
+              } catch (err) {
+                console.error(err);
+                alert("Failed to seed demo data: " + String(err));
+              }
+            }}
+            className="px-3 py-2 text-sm font-medium rounded-lg border bg-yellow-50 text-yellow-800 border-yellow-200 hover:bg-yellow-100"
+          >
+            Reset demo data
           </button>
         </div>
       </div>
