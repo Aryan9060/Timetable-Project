@@ -163,7 +163,7 @@ const ENTITY_CONFIG = {
     csvExampleHeader: "code,name,credits,isActive",
   },
 
-  specilization: {
+  Specialization: {
     label: "Specialization",
     pluralLabel: "Specializations",
     description: "Define specializations for programs (e.g. AI, DS).",
@@ -843,7 +843,7 @@ export default function Admin() {
                     { id: generateId(), code: "CS301", name: "Data Structures", credits: "3", isActive: true },
                     { id: generateId(), code: "CS302", name: "Database Systems", credits: "3", isActive: true },
                   ],
-                  specilization: [
+                  Specialization: [
                     { id: generateId(), code: "CSE-AI", name: "AI", programCode: "UG-CSE", courseCodes: "UG-CSE-101", duration: "4" },
                     { id: generateId(), code: "CSE-DS", name: "Data Science", programCode: "UG-CSE", courseCodes: "UG-CSE-101", duration: "4" },
                   ],
