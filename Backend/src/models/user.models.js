@@ -1,5 +1,7 @@
 import mongoose, { model, Schema } from "mongoose";
 
-const userSchema = new Schema({}, { timestamps: true });
+const userSchema = new Schema({
+    
+}, { timestamps: true });
 
 export const User = model("User", userSchema);
