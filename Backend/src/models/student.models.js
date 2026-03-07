@@ -6,10 +6,10 @@ const studentSchema = new Schema(
       type: String,
       required: true,
       unique: true,
-      lowercase: true,
+      uppercase: true,
       trim: true,
-      index: true,
     },
+
     student_name: {
       type: String,
       required: true,
@@ -17,13 +17,15 @@ const studentSchema = new Schema(
       trim: true,
       index: true,
     },
-    gender: {
+
+    email: {
       type: String,
       required: true,
+      unique: true,
       lowercase: true,
       trim: true,
-      index: true,
     },
+
     father_name: {
       type: String,
       required: true,
@@ -31,45 +33,52 @@ const studentSchema = new Schema(
       trim: true,
       index: true,
     },
-    class: {
+
+    class_code: {
       type: String,
       required: true,
       lowercase: true,
       trim: true,
-      index: true,
     },
+
     batch: {
       type: String,
       required: true,
       lowercase: true,
       trim: true,
-      index: true,
     },
+
     DOB: {
-      type: Date,
+      type: String,
       required: true,
       lowercase: true,
       trim: true,
-      index: true,
     },
     specialization: {
       type: String,
       required: true,
       lowercase: true,
       trim: true,
-      index: true,
     },
-    address: {
-      type: String,
-      required: true,
-      lowercase: true,
-      trim: true,
-      index: true,
-    },
-    isActive: {
-      type: Boolean,
-      default: true,
-    },
+
+    // gender: {
+    //   type: String,
+    //   required: true,
+    //   lowercase: true,
+    //   trim: true,
+    //   index: true,
+    // },
+    // address: {
+    //   type: String,
+    //   required: true,
+    //   lowercase: true,
+    //   trim: true,
+    //   index: true,
+    // },
+    // isActive: {
+    //   type: Boolean,
+    //   default: true,
+    // },
   },
   { timestamps: true },
 );
